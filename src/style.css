@@ -1,0 +1,21 @@
+/* @tailwind base; */
+/* @tailwind components; */
+
+
+/* @tailwind utilities; */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+    font-family: 'Electronic';
+    src: url('./assets/fonts/FX-LED.ttf');
+}
+
+.text-gradient{
+    background-image: radial-gradient(circle at center, #6951e4,#0879e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
