@@ -6,7 +6,7 @@ import ElementPlus from "element-plus";
 
 // import "./styles/preflight.css"
 // import "./styles/index.scss"
-import "./style.css";
+import "./style.css";           //使用了tailwindcss
 import "./assets/main.scss";
 
 
@@ -25,11 +25,11 @@ import axios from "axios";
 
 
 
-import router from "./router";
-import { createPinia} from "pinia";
+import router from "./router";          //页面路由
+import { createPinia} from "pinia";     //状态管理，相当于全局可用的数据
 import 'virtual:svg-icons-register'
-import MyIcon from "./components/SvgIcon/index.vue";
-import locale from "element-plus/dist/locale/zh-cn.js";
+import MyIcon from "./components/SvgIcon/index.vue";    //管理svg图片标签
+import locale from "element-plus/dist/locale/zh-cn.js";     //设置element 组件默认语言包
 
 // import Vue from "vue";
 
