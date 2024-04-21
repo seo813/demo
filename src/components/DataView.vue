@@ -121,8 +121,9 @@ const loadData = async () => {
 
 
 const loadData2 = () => {
-  // axios.get("http://192.168.31.190:8080/get")
-  axios.get("http://127.0.0.1:8080/get").then((res) => {
+  // axios.get("http://127.0.0.1:8080/get")
+  axios.get("http://47.113.217.195:8000/get")
+    .then((res) => {
     console.log(res.data.data);
     var res_data = res.data.data.slice().reverse();
     // createtime.value = res.data.data.map(item => item.createtime);
