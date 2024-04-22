@@ -86,7 +86,9 @@ const onCurrentChange = (num) => {
 }
 </script>
 <template>
+    <!-- 设备信息管理页面 -->
     <el-card class="page-container">
+        <!-- 页头 -->
         <template #header>
             <div class="header">
                 <span>设备管理</span>
@@ -99,6 +101,7 @@ const onCurrentChange = (num) => {
         <el-form inline>
             <el-form-item label="设备分类：">
                 <el-select placeholder="请选择" v-model="categoryId">
+                    <!-- 设备分类选项 -->
                     <el-option 
                         v-for="c in categorys" 
                         :key="c.id" 
@@ -110,6 +113,7 @@ const onCurrentChange = (num) => {
 
             <el-form-item label="设备状态：">
                 <el-select placeholder="请选择" v-model="state">
+                    <!-- 设备状态选项 -->
                     <el-option label="已发布" value="已发布"></el-option>
                     <el-option label="草稿" value="草稿"></el-option>
                 </el-select>
@@ -119,7 +123,7 @@ const onCurrentChange = (num) => {
                 <el-button>重置</el-button>
             </el-form-item>
         </el-form>
-        <!-- 文章列表 -->
+        <!-- 设备详细信息列表 -->
         <el-table :data="articles" style="width: 100%">
             <el-table-column label="设备名称" width="400" prop="title"></el-table-column>
             <el-table-column label="分类" prop="categoryId"></el-table-column>

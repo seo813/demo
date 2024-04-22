@@ -216,6 +216,7 @@ const toData = () => {
     // fill:currentColor;
     // overflow: hidden;;
     //   background: url("@/assets/维修人员22222.png");
+    fill:#fff;
     }
 
   .el-footer {
@@ -245,9 +246,9 @@ padding: 1.3em 2em;
 }
 
 button:hover {
-  background-color: #23c483;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
+  background-color: #4b4d4c;
+  box-shadow: 0px 15px 20px rgba(100, 102, 101, 0.4);
+  color: #a09a9a;
   transform: translateY(-4px);
 }
 
@@ -257,7 +258,8 @@ button:active {
 
 .btn1{
 background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(21,195,196,1) 0%, rgba(0,212,255,1) 100%);
+background: linear-gradient(90deg, rgb(66, 110, 214) 0%, rgb(47, 82, 207) 0%, rgb(13, 49, 230) 100%);
+color: #fff;
 }
 
 

@@ -1,10 +1,15 @@
 <script setup>
+
+// 导入Edit和Delete图标
 import { Edit, Delete } from "@element-plus/icons-vue";
 
+// 导入ElMessage和ElMessageBox消息提示组件
 import { ElMessage, ElMessageBox } from "element-plus";
 
+// 导入useDeviceStore函数，用于获取设备信息的状态管理
 import { useDeviceStore } from "@/stores/device.js";
 
+// 导入ref函数，用于创建响应式引用
 import { ref } from "vue";
 import {
   getDeviceInfoI,
@@ -12,17 +17,21 @@ import {
   updateDeviceInfoI,
   deleteDeviceInfoI,
 } from "@/api/deviceInfo.js";
+import { data } from "autoprefixer";
 
 
 const num = ref(123);
 
+// 定义deviceStore,用于获取设备信息的状态管理
 const deviceStore = useDeviceStore();
 
+// 用于处理表格点击事件
 const handleRowClick = (row) => {
   deviceStore.device.deviceid = row.deviceid;
   dialogVisible.value = false;
 };
 
+// 定义一个空的handleChange方法
 const handleChange = () => {};
 
 //设备信息列表
@@ -34,6 +43,7 @@ const windfarmid = ref("");
 
 //用户搜索时选中的发布状态
 const state = ref("");
+
 
 //控制添加分类弹窗
 const dialogVisible = ref(false);
@@ -55,10 +65,12 @@ const onCurrentChange = (num) => {
   getDeviceInfo();
 };
 
-
+// 对获取到的设备信息进行格式化处理
 const formatDate = (data) => {
+  // 用于将传入的数据中的updatetime和createtime字段的"T"替换为" "
   return data.map((item) => {
     return {
+      // 将item对象的所有属性都解构出来
       ...item,
       updatetime: item.updatetime ? item.updatetime.replace("T", " ") : null,
       createtime: item.createtime.replace("T", " "),
@@ -66,6 +78,7 @@ const formatDate = (data) => {
   });
 };
 
+// 定义getDeviceInfo异步函数,用于获取设备信息
 const getDeviceInfo = async () => {
   let params = {
     page: page.value,
@@ -81,15 +94,19 @@ const getDeviceInfo = async () => {
   console.log(deviceInfoList.updatetime);
 };
 
-
+// 获取设备信息
 getDeviceInfo();
 </script>
 
 <template>
+  <!-- 使用 el-card 组件创建一个卡片容器 -->
   <el-card class="page-container">
+    <!-- 定义一个名为 header 的插槽 -->
     <template #header>
+      <!-- 创建一个 div 元素，用于显示标题栏内容 -->
       <div class="header">
         <strong>设备参数设置</strong>
+        <!-- 用于显示当前选择的设备信息 -->
         <div class="header">
           <div style="margin-right: 20px">
             <span>当前选择设备为: </span>
@@ -118,6 +135,7 @@ getDeviceInfo();
                 <el-empty description="没有数据" />
             </template>
         </el-table> -->
+    <!-- 使用 Element UI 的表单组件（el-form） -->
     <el-form
       :inline="true"
       class="demo-form-inline"
@@ -125,6 +143,7 @@ getDeviceInfo();
       size="default"
     >
       <el-form-item label="振动速度高通截止频率">
+        <!-- 输入框组件（el-input-number） -->
         <el-input-number
           v-model="num"
           :min="0"
@@ -139,6 +158,7 @@ getDeviceInfo();
           :max="65535"
           @change="handleChange"
         />
+        <!-- @change:事件监听器,当输入框的值发生改变是调用handleChange函数 -->
       </el-form-item>
       <el-form-item label="振动加速度高通截止频率">
         <el-input-number
@@ -573,7 +593,7 @@ getDeviceInfo();
         />
       </el-form-item>
       <el-form-item label="波特率">
-        <el-select placeholder="Activity zone" clearable>
+        <el-select v-model="value" placeholder="Activity zone" clearable>
           <el-option label="Zone one" value="shanghai" />
           <el-option label="Zone two" value="beijing" />
         </el-select>
@@ -583,6 +603,7 @@ getDeviceInfo();
       </el-form-item>
     </el-form>
 
+
     <!-- 更换设备弹窗 -->
     <el-drawer
       v-model="dialogVisible"
@@ -591,8 +612,8 @@ getDeviceInfo();
       :with-header="false"
     >
       <el-form inline>
-        <el-form-item label="所属风电场：" width="800">
-          <el-select placeholder="请选择" v-model="windfarmid">
+        <el-form-item label="所属风电场：">
+          <el-select v-model="value" placeholder="请选择">
             <el-option label="01" value="01"></el-option>
             <el-option label="02" value="02"></el-option>
             <el-option label="03" value="03"></el-option>
@@ -603,6 +624,7 @@ getDeviceInfo();
 
         <el-form-item label="设备状态：" width="800">
           <el-select placeholder="请选择" v-model="state">
+            <option>{{label}}</option>
             <el-option label="运行中" value="0"></el-option>
             <el-option label="维修中" value="1"></el-option>
             <el-option label="预警中" value="2"></el-option>
@@ -676,6 +698,10 @@ getDeviceInfo();
     align-items: center;
     justify-content: space-between;
   }
+}
+
+.font-size {
+  font-size: 16px; /* 初始字体大小为16像素 */
 }
 
 .el-input-number {
