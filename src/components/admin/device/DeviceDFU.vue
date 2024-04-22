@@ -147,7 +147,7 @@ getDeviceInfo();
       <div class="header">
         <strong>设备固件升级</strong>
         <div class="extra">
-          <el-button type="primary" class="btn1">一键烧录</el-button>
+          <el-button type="primary" class="btn2">一键烧录</el-button>
         </div>
       </div>
     </template>
@@ -278,8 +278,8 @@ padding: 1.3em 3em;
 }
 
 button:hover {
-  background-color: #23c483;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  background-color: #68726e;
+  box-shadow: 0px 15px 20px rgba(141, 154, 149, 0.4);
   color: #fff;
   transform: translateY(-4px);
 }
@@ -289,7 +289,15 @@ button:active {
 }
 
 .btn1{
-background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(21,195,196,1) 0%, rgba(0,212,255,1) 100%);
+background: rgb(205, 2, 19);
+background: linear-gradient(65deg, rgba(2,0,36,1) 0%, rgba(21,195,196,1) 0%, rgba(0,212,255,1) 100%);
 }
+
+.btn2{
+background: rgb(205, 2, 19);
+background: linear-gradient(90deg, rgb(205, 95, 113) 0%, rgb(213, 125, 138) 0%, rgb(237, 43, 43) 100%);
+color: #fff;
+font-weight:bold;
+}
+
 </style>
